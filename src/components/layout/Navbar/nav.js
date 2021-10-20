@@ -14,7 +14,7 @@ function NavSection(props) {
     style.display = "block";
   }
 
-  let color = props?.data?.color ? 'primary' : "dark";
+  let color = props?.data?.color ? 'success' : "dark";
 
   const goLogin = async (values) => {
     localStorage.clear();
@@ -27,9 +27,9 @@ function NavSection(props) {
         <Navbar.Brand href="#home">React Demo</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/home">Home</Nav.Link>
-          <Nav.Link href="/product">Product</Nav.Link>
+          <Nav.Link href="/customer-management">Customers</Nav.Link>
         </Nav>
-        <button onClick={goLogin} type="button">
+        <button className="btn btn-success" onClick={goLogin} type="button">
           Logout
         </button>
       </Container>

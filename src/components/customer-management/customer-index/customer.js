@@ -10,17 +10,44 @@ import InputGroup from "react-bootstrap/InputGroup";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import services from "../../../services/api";
+import { GET_CUSTOMERS_API } from "../../../services/urls";
+import NavSection from "../../layout/Navbar/nav";
+import AddEditCustomer from "../add-edit/add-edit-customer";
 
 function Customer(props) {
   console.log(props, "Customer props");
-  let { customerList, getCustomersList } = props;
+  // let { customerList, getCustomersList } = props;
+  let [customerList, setCustomerList] = useState([]);
+  let [isOpen, setIsOpen] = useState(false);
+
+  const getCustomersList = async () => {
+    let data = await services.get(GET_CUSTOMERS_API);
+    let list = data["object"]["UserList"];
+    setCustomerList(list);
+  };
 
   useEffect(() => {
     getCustomersList();
   }, []);
 
+  const openAddEditModal = () => {
+    setIsOpen(true);
+   
+  };
+
   return (
     <Container fluid>
+      <NavSection data={{ color: "#DCDCDC" }} />
+      <br></br>
+      <br></br>
+      <button
+        onClick={openAddEditModal}
+        type="button"
+        className="btn btn-success add-customer-btn"
+      >
+        + Add Customer
+      </button>
       <div className="">
         <br></br>
         <Row>
@@ -58,13 +85,13 @@ function Customer(props) {
             </tr>
           </thead>
           <tbody>
-            {customerList.customers &&
-              customerList?.customers.map((val, index) => {
+            {customerList &&
+              customerList.map((val, index) => {
                 return (
                   <>
                     <tr key={index + 1}>
-                      <td>{val.id}</td>
-                      <td>{val.name}</td>
+                      <td >{val._id}</td>
+                      <td>{val.fullName}</td>
                       <td>{val.email}</td>
                       <td>{val.gender}</td>
                       <td>
@@ -82,6 +109,8 @@ function Customer(props) {
           </tbody>
         </Table>
       </div>
+
+      {isOpen ? <AddEditCustomer /> : null}
     </Container>
   );
 }

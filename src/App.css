@@ -61,19 +61,26 @@ a.active_class{
 }
 
 #btnGroupAddon2{
-  background: #8a92b5 !important;
+  background:  #2f8754 !important;
   
 }
 
 .theme-bluid{
-  color:  #8a92b5 !important;
+  color: #2f8754 !important;
   text-transform: capitalize;
   font-size: 22px;
 }
 
 .mtabel-th{
-  background: #8a92b4 !important;
+  background:  #2f8754 !important;
     color: white;
     font-size: 14px;
     font-weight: 500;
 }
+
+.add-customer-btn{
+  float: right;
+  margin-top: 18px;
+  margin-right: 36px;
+}
+
