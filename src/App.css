@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+
+.login-label{
+  font-size: 20px;
+  text-align: center;
+  font-weight: 400;
+}
+
+a.active_class{
+  color: red;
+}
+
+.mx-top-set{
+  /* padding-top: 20px; */
+  margin-top: 20px;
+  padding: 20px 20px !important;
+}
+
+.search-box{
+  border: 1px solid #DCDCDC;
+  padding-left: 20px;
+  height: 33px;
+}
+
+#btnGroupAddon2{
+  background: #8a92b5 !important;
+  
+}
+
+.theme-bluid{
+  color:  #8a92b5 !important;
+  text-transform: capitalize;
+  font-size: 22px;
+}
+
+.mtabel-th{
+  background: #8a92b4 !important;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
